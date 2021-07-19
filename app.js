@@ -12,10 +12,21 @@ form.addEventListener('submit', e => {
     //console.log(userAnswers);  
     userAnswers.forEach((answer, index) => {
         if(answer === correctAnswers[index]) score+=20;
+        output.classList.remove('d-none');
+        scrollTo(0,0);
     })
-    output.textContent = `Tvoja motivacia je ${score} %`;
-    output.classList.remove('d-none');
-    scrollTo(0,0);
+    
+    let i = 0;
+    setTimeout(() => {
+        const timer = setInterval(() => {
+            output.textContent = `Tvoja motivacia je ${i} %`;
+            i++;
+            if(i >= score){
+                clearInterval(timer);
+                output.textContent = `Tvoja motivacia je ${score} %`;
+            }
+        }, 15);
+    }, 100);
 })
 
 
