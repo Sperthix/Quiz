@@ -27,6 +27,7 @@ form.addEventListener('submit', e => {
             }
         }, 15);
     }, 100);
+    score = 0;
 })
 
 
